@@ -1,16 +1,25 @@
 {
   "name": "api",
   "version": "1.0.0",
-  "description": "",
+  "description": "A Projetc API in NodeJs for studing",
+  "private": true,
+  "license": "ISC",
+  "keywords": [],
+  "author": {
+    "name": "Davi Roberto",
+    "nickname": "davifsroberto",
+    "email": "davifsroberto@outlook.com",
+    "url": "https://davifsroberto.github.io",
+    "linkedin": "https://linkedin.com/in/davifsroberto",
+    "github": "https://github.com/davifsroberto",
+    "medium": "https://medium.com/@davifsroberto"
+  },
   "main": "index.js",
   "scripts": {
     "test": "jest",
     "test:staged": "jest",
     "prepare": "husky install"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "devDependencies": {
     "@types/jest": "^29.5.10",
     "@types/node": "^20.10.3",
