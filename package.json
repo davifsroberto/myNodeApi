@@ -16,7 +16,7 @@
   },
   "main": "index.js",
   "scripts": {
-    "test": "jest --passWithNoTests",
+    "test": "jest --passWithNoTests --watch",
     "test:staged": "jest --passWithNoTests",
     "lint:check": "eslint 'src/**'",
     "lint:fix": "eslint 'src/**' --fix",
