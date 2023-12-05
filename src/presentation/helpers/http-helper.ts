@@ -11,7 +11,8 @@ export const serverError = (): HttpResponse => ({
   body: new ServerError(),
 });
 
-export const successRequest = (): HttpResponse => ({
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const ok = (data: any): HttpResponse => ({
   statusCode: 200,
-  body: 'Success',
+  body: data,
 });
