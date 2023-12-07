@@ -8,6 +8,7 @@ const config: Config = {
   clearMocks: true,
   coverageProvider: 'v8',
   testEnvironment: 'node',
+  preset: '@shelf/jest-mongodb',
   transform: {
     '.+\\.ts$': 'ts-jest',
   },
