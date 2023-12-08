@@ -1,3 +1,3 @@
 import app from './config/app';
 
-app.listen(505, () => console.log('Server runing at http://localhost:5050'));
+app.listen(5050, () => console.info('Server runing at http://localhost:5050'));

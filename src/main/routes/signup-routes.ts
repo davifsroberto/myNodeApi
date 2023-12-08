@@ -1,9 +1,7 @@
 import { Router } from 'express';
 
 export default (router: Router): void => {
-  router.post('/signup', (req, res) => {
-    console.log(res);
-
+  router.post('/signup', (_, res) => {
     res.json({ ok: 'ok' });
   });
 };
