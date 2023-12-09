@@ -9,13 +9,13 @@ describe('Signup Routes', () => {
   });
 
   beforeEach(async () => {
-    const accountCollection = MongoHelper.getCollection('accounts');
+    const accountCollection = await MongoHelper.getCollection('accounts');
 
     await accountCollection.deleteMany({});
   });
 
   afterAll(async () => {
-    await MongoHelper.close();
+    await MongoHelper.disconnect();
   });
 
   test('Should return an account on success', async () => {
