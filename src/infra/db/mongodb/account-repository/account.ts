@@ -11,7 +11,6 @@ export class AccountMongoRepository implements AddAccountRepository {
       _id: result.insertedId,
     });
     const insertedUser = await insertedUserCursor.toArray();
-
     const account = insertedUser[0] as AccountModelInserted;
 
     return MongoHelper.mapAccount<AccountModelInserted, AccountModel>(account);
