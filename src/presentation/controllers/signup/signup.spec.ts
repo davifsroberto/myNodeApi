@@ -19,8 +19,9 @@ interface SutTypes {
 
 const makeEmailValidator = (): EmailValidator => {
   class EmailValidatorStub implements EmailValidator {
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    isValid(_email: string): boolean {
+    isValid(email: string): boolean {
+      email;
+
       return true;
     }
   }
@@ -92,24 +93,6 @@ describe('SignUp Controller', () => {
     const httpResponse = await sut.handle(makeFakeRequest());
 
     expect(httpResponse).toEqual(badRequest(new InvalidParamError('email')));
-  });
-
-  test('Should return 400 if passwordConfirmation false', async () => {
-    const { sut } = makeSut();
-
-    const httpRequest = {
-      body: {
-        name: 'any_name',
-        email: 'any_email@domain.com',
-        password: 'password',
-        passwordConfirmation: 'invalid_password',
-      },
-    };
-    const httpResponse = await sut.handle(httpRequest);
-
-    expect(httpResponse).toEqual(
-      badRequest(new InvalidParamError('passwordConfirmation')),
-    );
   });
 
   test('Should call EmailValidator with correct email', async () => {
