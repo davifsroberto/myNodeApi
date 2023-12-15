@@ -40,9 +40,7 @@ export default class LoginController implements Controller {
       }
 
       const accessToken = await this.authentication.auth(email, password);
-      if (!accessToken) {
-        return unauthorized();
-      }
+      if (!accessToken) return unauthorized();
 
       return ok({ accessToken: 'any_token' });
     } catch (error) {
