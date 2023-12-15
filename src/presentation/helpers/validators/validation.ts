@@ -1,3 +1,4 @@
 export interface Validation {
-  validate(_input: unknown): Error | null;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  validate(_input: any): Error | null;
 }
