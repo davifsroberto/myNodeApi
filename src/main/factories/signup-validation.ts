@@ -4,7 +4,7 @@ import { ValidationComposite } from '../../presentation/helpers/validators/valid
 
 export const makeSingUpValidation = (): ValidationComposite => {
   const validations: Validation[] = [];
-  const fields = ['name', 'email', 'passwords', 'passwordConmfirmation'];
+  const fields = ['name', 'email', 'password', 'passwordConfirmation'];
 
   for (const field of fields) {
     validations.push(new RequiredFieldValidation(field));

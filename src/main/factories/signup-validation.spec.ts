@@ -9,7 +9,7 @@ describe('SignUpValidation Factory', () => {
   test('Should call ValidationCOmposite eith all validations', () => {
     makeSingUpValidation();
     const validations: Validation[] = [];
-    const fields = ['name', 'email', 'passwords', 'passwordConmfirmation'];
+    const fields = ['name', 'email', 'password', 'passwordConfirmation'];
 
     for (const field of fields) {
       validations.push(new RequiredFieldValidation(field));
