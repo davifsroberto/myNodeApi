@@ -6,12 +6,15 @@ import {
   HttpRequest,
   HttpResponse,
 } from '../protocols';
+import { AddAccount } from '../../domain/usecases/add-account';
 
 export class SignUpController implements Controller {
   private readonly emailValidator: EmailValidator;
+  private readonly addAccount: AddAccount;
 
-  constructor(emailValidator: EmailValidator) {
+  constructor(emailValidator: EmailValidator, addAccount: AddAccount) {
     this.emailValidator = emailValidator;
+    this.addAccount = addAccount;
   }
 
   handle(httpRequest: HttpRequest): HttpResponse {
@@ -24,14 +27,21 @@ export class SignUpController implements Controller {
       ];
 
       const reqBody = httpRequest.body;
+      const { name, email, password, passwordConfirmation } = reqBody;
 
       for (const field of requiredFields) {
         if (!reqBody[field]) return badRequest(new MissingParamError(field));
       }
 
-      const isValid = this.emailValidator.isValid(reqBody.email);
+      if (password !== passwordConfirmation) {
+        return badRequest(new InvalidParamError('passwordConfirmation'));
+      }
 
-      if (!isValid) return badRequest(new InvalidParamError('email'));
+      const isEmailValid = this.emailValidator.isValid(email);
+
+      if (!isEmailValid) return badRequest(new InvalidParamError('email'));
+
+      this.addAccount.add({ name, email, password });
     } catch (error) {
       return serverError();
     }
