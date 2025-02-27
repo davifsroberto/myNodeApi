@@ -29,6 +29,7 @@
     "prepare": "husky install"
   },
   "devDependencies": {
+    "@types/bcrypt": "^5.0.2",
     "@types/jest": "^29.5.10",
     "@types/node": "^20.10.3",
     "@types/validator": "^13.12.2",
@@ -48,6 +49,7 @@
   },
   "dependencies": {
     "@shelf/jest-mongodb": "^5.0.0",
+    "bcrypt": "^5.1.1",
     "validator": "^13.12.0"
   }
 }
