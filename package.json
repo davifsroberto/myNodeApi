@@ -47,6 +47,7 @@
     "typescript": "^5.3.2"
   },
   "dependencies": {
+    "@shelf/jest-mongodb": "^5.0.0",
     "validator": "^13.12.0"
   }
 }
